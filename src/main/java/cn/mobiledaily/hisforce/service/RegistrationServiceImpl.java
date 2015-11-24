@@ -1,5 +1,6 @@
 package cn.mobiledaily.hisforce.service;
 
+import cn.mobiledaily.hisforce.Keys;
 import cn.mobiledaily.hisforce.domain.hospital.Department;
 import cn.mobiledaily.hisforce.domain.hospital.Doctor;
 import cn.mobiledaily.hisforce.domain.patient.Patient;
@@ -28,6 +29,8 @@ public class RegistrationServiceImpl implements RegistrationService {
     private DoctorRepository doctorRepository;
     @Inject
     private RegistrationRepository registrationRepository;
+    @Inject
+    private RedisRepository redisRepository;
 
     @Override
     public PatientBasicInfo createPatientBasicInfo(PatientBasicInfo basicInfo) {
@@ -54,6 +57,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         if (patient == null) {
             patientRepository.save(new Patient(registration.getHospitalId(), registration.getRecommender(), registration.getPatientBasicInfoId()));
         }
+        redisRepository.addForZSet(Keys.doctorRegistrationQueue(doctor.getId(), registration.getCreateDate()), registration.getId(), registration.getCreateDate().getTime());
         return registrationRepository.save(registration);
     }
 
