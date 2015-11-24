@@ -1,0 +1,121 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jslib/commonJs/common.js" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	//用户信息
+	function userInfo() {
+		mtm.createDialogClose({
+			title : '用户信息',
+			iconCls: 'icon-user-info',
+			href: mtm.contextPath +'/userController/userInfo.do',
+			width : 450,
+			height : 380
+		});
+	}
+	//修改密码
+	function editPassword() {
+		 var p = parent.mtm.createDialog({
+			title : '修改密码',
+			iconCls: 'icon-user-edit',
+			href: mtm.contextPath+'/userController/changePwd.do',
+			width : 450,
+			height : 180,
+			buttons : [ {
+				text : '保存',
+				iconCls : 'icon-ok',
+				handler : function() {
+					var f = p.find('form');
+					f.form('submit', {
+						url : mtm.contextPath+'/userController/changePwdSave.do',
+						success : function(d) {
+							var json = $.parseJSON(d);
+							if (json.success) {
+								p.dialog('close');
+							}
+							parent.mtm.messagerShow({
+								msg : json.msg
+							});
+						  }
+						});
+				}
+			} ,{
+			    text : '取消',
+			    iconCls : 'icon-cancel',
+				handler : function(){
+				p.dialog('close');
+				}
+			}]
+		});
+	}
+	//注销系统
+	function logout() {
+	  $.messager.confirm('操作提醒', '确认要退出系统吗？', function(r) {
+		   if (r) {
+		     $.ajax({
+				url:mtm.contextPath+'/loginController/loginout.do',
+				cache : false,
+				dataType : "json",
+				success : function(response) {
+				 window.location.href = mtm.contextPath;
+				}
+			});
+			 //var url=mtm.contextPath+'/system/loginAction!logout.action';
+		     //window.location.href = mtm.contextPath;
+		}
+	  });
+	}
+	//全屏切换
+	function fullScreen(){
+        if ($.util.supportsFullScreen) {
+            if ($.util.isFullScreen()) {
+                $.util.cancelFullScreen();
+            } else {
+                $.util.requestFullScreen();
+            }
+        } else {
+            mtm.messagerShow({
+            	msg:"当前浏览器不支持全屏，请更换浏览器或通过 F11快捷键进行操作"
+            });
+        }
+	}
+	//隐藏顶部
+	function northhide(){
+	   $('#indexLayout').layout("collapse", "north");
+	}
+</script>
+   
+   <div id="topbar" class="top-bar" style="background:url(${pageContext.request.contextPath}/style/images/toubg.jpg)">
+        <div class="top-bar-left">
+            <img src="${pageContext.request.contextPath}/style/images/banner.png" >
+        </div>
+        <div class="top-bar-right">
+            <div id="timerSpan">
+                <span id="clock"></span> 
+            </div>
+        </div>
+    </div>
+    <div id="toolbar" class="panel-header panel-header-noborder top-toolbar">
+        <div id="infobar">
+            <span class="icon-user" style="padding-left: 25px; background-position: left center;">
+                                    欢迎您:【${USER_SESSION.user.username}】登录</span> 
+        </div>
+        <div id="buttonbar">
+            <a class="easyui-linkbutton" data-options="plain: true, iconCls: 'icon-user-info'" onclick="userInfo();">用户信息</a>
+            <a class="easyui-linkbutton" data-options="plain: true, iconCls: 'icon-user-edit'" onclick="editPassword();">修改密码</a>
+            <a class="easyui-menubutton" menu="#layout_north_kzmbMenu" data-options="plain: true, iconCls: 'icon-rainbow'">更换皮肤</a>
+            <a class="easyui-linkbutton" data-options="plain: true, iconCls: 'icon-full-screen'" onclick="fullScreen();">全屏切换</a>
+            <a class="easyui-linkbutton" data-options="plain: true, iconCls: 'icon-door-out'" onclick="logout();">退出系统</a>
+            <a id="btnHideNorth" onclick="northhide();" class="easyui-linkbutton" data-options="plain: true, iconCls: 'layout-button-up'"></a>
+        </div>
+    </div>
+    
+     <div id="layout_north_kzmbMenu" style="width: 100px; display: none;">
+			<div style="width: 100px;" onclick="mtm.changeTheme('default');">默认(天空蓝)</div>
+			<div style="width: 100px;" onclick="mtm.changeTheme('jqueryui-cupertino');">清泉</div>
+			<div style="width: 100px;" onclick="mtm.changeTheme('bootstrap');">银色</div>
+			<div style="width: 100px;" onclick="mtm.changeTheme('gray');">灰霾</div>
+			<div style="width: 100px;" onclick="mtm.changeTheme('metro-orange');">磁铁(橙)</div>
+			<div style="width: 100px;" onclick="mtm.changeTheme('metro-green');">磁铁(绿)</div>
+			<div style="width: 100px;" onclick="mtm.changeTheme('metro-blue');">磁铁(蓝)</div>
+			<div style="width: 100px;" onclick="mtm.changeTheme('metro-gray');">磁铁(灰)</div>
+			<div style="width: 100px;" onclick="mtm.changeTheme('metro-red');">磁铁(红)</div>
+		</div>
