@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="resources/jquery-easyui-1.4.4/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="resources/jquery-easyui-1.4.4/themes/icon.css">
+    <script type="text/javascript" src="resources/jquery-easyui-1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+    <style>
+        html { height: 100%; }
+        body { position: absolute; top: 0; bottom: 0; right: 0; left: 0; }
+    </style>
+</head>
+<body>
+<div class="easyui-layout" style="width:100%;height:100%">
+    <div data-options="region:'west',split:true,collapsible:false" title="菜单" style="width:200px;">
+        <ul class="easyui-tree">
+            <li>
+                <span>My Documents</span>
+                <ul>
+                    <li data-options="state:'closed'">
+                        <span>Photos</span>
+                        <ul>
+                            <li><span>Friend</span></li>
+                            <li><span>Wife</span></li>
+                            <li><span>Company</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>Program Files</span>
+                        <ul>
+                            <li>Intel</li>
+                            <li>Java</li>
+                            <li>Microsoft Office</li>
+                            <li>Games</li>
+                        </ul>
+                    </li>
+                    <li>index.html</li>
+                    <li>about.html</li>
+                    <li>welcome.html</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div data-options="region:'center',title:'Main Title'">
+
+    </div>
+</div>
+</body>
+</html>
