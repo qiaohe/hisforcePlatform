@@ -114,5 +114,4 @@ public class HospitalController {
         article.setCreator(employee.getId());
         return Result.successResult(hospitalService.addArticle(article));
     }
-
 }
