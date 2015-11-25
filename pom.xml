@@ -331,4 +331,47 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>all</id>
+            <activation>
+                <file>
+                    <missing>non_existed_file</missing>
+                </file>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <filtering>true</filtering>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>config.properties</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>default</id>
+            <activation>
+                <file>
+                    <missing>default</missing>
+                </file>
+            </activation>
+            <build>
+                <filters>
+                    <filter>profiles/default.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>zhaoxu</id>
+            <build>
+                <filters>
+                    <filter>profiles/zhaoxu.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
 </project>
