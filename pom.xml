@@ -343,6 +343,13 @@
             <build>
                 <resources>
                     <resource>
+                        <filtering>false</filtering>
+                        <directory>src/main/resources</directory>
+                        <excludes>
+                            <exclude>config.properties</exclude>
+                        </excludes>
+                    </resource>
+                    <resource>
                         <filtering>true</filtering>
                         <directory>src/main/resources</directory>
                         <includes>
