@@ -1,0 +1,19 @@
+[{
+    "text": "企业信息",
+    "children": [{
+        "text": "企业介绍",
+        "url": "company/info"
+    },{
+        "text": "员工中心",
+        "url": "company/staff"
+    }]
+}, {
+    "text": "医生管理",
+    "children": [{
+        "text": "今日工作",
+        "url": "doctor/today"
+    },{
+        "text": "医生管理",
+        "url": "doctor/manager"
+    }]
+}]
