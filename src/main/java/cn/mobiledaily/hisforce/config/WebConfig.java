@@ -79,13 +79,4 @@ public class WebConfig extends WebMvcConfigurationSupport {
     public ObjectMapper mapper() {
         return new ObjectMapper();
     }
-
-    @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/");
-        viewResolver.setSuffix(".html");
-        return viewResolver;
-    }
 }

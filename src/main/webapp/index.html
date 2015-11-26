@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Home</title>
     <link rel="stylesheet" type="text/css" href="resources/jquery-easyui-1.4.4/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="resources/jquery-easyui-1.4.4/themes/icon.css">
-    <script type="text/javascript" src="resources/jquery-easyui-1.4.4/jquery.min.js"></script>
-    <script type="text/javascript" src="resources/js/core.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/js.cookie.min.js"></script>
     <script type="text/javascript" src="resources/jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="resources/js/core.js"></script>
     <style>
         html { height: 100%; }
         body { position: absolute; top: 0; bottom: 0; right: 0; left: 0; }
     </style>
 </head>
 <body>
+<script>
+    $.ajax({url:'check-login', async:false}).done(function(json) {
+        if (json.ret != 1) {
+            window.location = 'login.html'
+        }
+    });
+</script>
 <div class="easyui-layout" style="width:100%;height:100%">
     <div data-options="region:'west',split:true,collapsible:false" title="菜单" style="width:200px;">
         <ul id="menu"></ul>
@@ -25,7 +33,8 @@
 <script>
     $(function() {
         $('#menu').tree({
-            url: 'data/menu.json',
+            url: 'resources/data/menu.json',
+            method: 'get',
             onClick: function(node) {
                 if (node.url) {
                     var main = $('#main');
@@ -41,7 +50,7 @@
                     }
                 }
             }
-        })
+        });
     });
 </script>
 </body>
