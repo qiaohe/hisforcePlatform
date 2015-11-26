@@ -1,4 +1,4 @@
-package cn.mobiledaily.hisforce;
+package cn.mobiledaily.hisforce.common;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

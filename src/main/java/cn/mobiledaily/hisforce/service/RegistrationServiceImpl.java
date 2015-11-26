@@ -1,6 +1,6 @@
 package cn.mobiledaily.hisforce.service;
 
-import cn.mobiledaily.hisforce.Keys;
+import cn.mobiledaily.hisforce.common.Keys;
 import cn.mobiledaily.hisforce.domain.hospital.Department;
 import cn.mobiledaily.hisforce.domain.hospital.Doctor;
 import cn.mobiledaily.hisforce.domain.patient.Patient;

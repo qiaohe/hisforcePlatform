@@ -23,6 +23,5 @@ public class UnauthorizedAuthenticationEntryPoint implements AuthenticationEntry
         PrintWriter writer = response.getWriter();
         mapper.writeValue(writer, Result.forceLogoutResult("invalid token"));
         writer.flush();
-//        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
     }
 }

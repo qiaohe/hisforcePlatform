@@ -26,7 +26,7 @@ public class BusinessPeopleController {
 
     @RequestMapping(value = "/invitations", method = RequestMethod.GET)
     @ResponseBody
-    public Result getIvitations(@AuthenticationPrincipal Employee employee) {
+    public Result getInvitations(@AuthenticationPrincipal Employee employee) {
         return Result.successResult(businessPeopleService.getInvitations(employee.getHospitalId(), employee.getId()));
     }
 
