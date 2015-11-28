@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="../resources/jquery-easyui-1.4.4/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../resources/jquery-easyui-1.4.4/themes/icon.css">
     <script type="text/javascript" src="../resources/jquery-easyui-1.4.4/jquery.min.js"></script>
-    <script type="text/javascript" src="../resources/js/core.js"></script>
+    <script type="text/javascript" src="../resources/js/js.cookie.min.js"></script>
     <script type="text/javascript" src="../resources/jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../resources/js/core.js"></script>
 </head>
 <body>
-<h1>员工中心</h1>
+<table id="dg" title="My Users" data-options="url:'/employees', toolbar:'#toolbar'" style="width:100%" class="easyui-datagrid">
+    <thead>
+    <tr>
+        <th data-options="field:'name'" width="2">姓名</th>
+        <th data-options="field:'gender', formatter:core.formatter.gender" width="2">性别</th>
+        <th data-options="field:'mobile'" width="5">手机</th>
+        <th data-options="field:'department', formatter:core.formatter.department" width="5">部门</th>
+    </tr>
+    </thead>
+</table>
+<div id="toolbar">
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add', plain:'true'" onclick="newItem()">New</a>
+</div>
+<script>
+</script>
 </body>
 </html>
