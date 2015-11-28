@@ -1,19 +1,92 @@
-[{
-    "text": "企业信息",
-    "children": [{
-        "text": "企业介绍",
-        "url": "company/info"
-    },{
-        "text": "员工中心",
-        "url": "company/staff"
-    }]
-}, {
+[
+  {
     "text": "医生管理",
-    "children": [{
+    "children": [
+      {
         "text": "今日工作",
         "url": "doctor/today"
-    },{
+      },
+      {
         "text": "医生管理",
         "url": "doctor/manager"
-    }]
-}]
+      },
+      {
+        "text": "排班管理",
+        "url": "doctor/shiftPlan"
+      },
+      {
+        "text": "科室中心",
+        "url": "doctor/manager"
+      }
+    ]
+  },
+  {
+    "text": "预约挂号",
+    "url":"/registration"
+  },
+  {
+    "text": "业务管理",
+    "children": [
+      {
+        "text": "任务设置",
+        "url": "business/setting"
+      },
+      {
+        "text": "联系人管理",
+        "url": "business/contact"
+      }
+    ]
+  },
+  {
+    "text": "患者中心",
+    "children": [
+      {
+        "text": "患者中心",
+        "url": "patient/center"
+      },
+      {
+        "text": "患者档案",
+        "url": "patient/profile"
+      }
+    ]
+  },
+  {
+    "text": "门诊管理",
+    "children": [
+      {
+        "text": "门诊中心",
+        "url": "outPatient/center"
+      },
+      {
+        "text": "我的预约",
+        "url": "outPatient/registration"
+      }
+    ]
+  },
+  {
+    "text": "提醒通知",
+    "url":"/notification"
+  },
+  {
+    "text": "医患互动",
+    "url":"/chat"
+  },
+  {
+    "text": "系统管理",
+    "children": [
+      {
+        "text": "企业信息",
+        "url": "sys/companyInfo"
+      },
+      {
+        "text": "员工中心",
+        "url": "company/staff"
+      },
+      {
+        "text": "字典维护",
+        "url": "sys/dict"
+      }
+    ]
+  }
+
+]
